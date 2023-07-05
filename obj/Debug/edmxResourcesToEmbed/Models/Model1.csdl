@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TourismpkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TourismpkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="TourismpkModel.Admin" />
+    <EntitySet Name="bookings" EntityType="TourismpkModel.booking" />
+    <EntitySet Name="Categories" EntityType="TourismpkModel.Category" />
+    <EntitySet Name="Packages" EntityType="TourismpkModel.Package" />
+    <EntitySet Name="sysdiagrams" EntityType="TourismpkModel.sysdiagram" />
+    <EntitySet Name="Tourists" EntityType="TourismpkModel.Tourist" />
+    <AssociationSet Name="FK_booking_Package" Association="TourismpkModel.FK_booking_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="booking" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_Category" Association="TourismpkModel.FK_Package_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Package" EntitySet="Packages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Admin_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Admin_Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="booking_id" />
+    </Key>
+    <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_no" Type="Int32" />
+    <Property Name="room_fid" Type="Int32" />
+    <Property Name="booking_from" Type="DateTime" Precision="0" />
+    <Property Name="booking_to" Type="DateTime" Precision="0" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Package" Relationship="TourismpkModel.FK_booking_Package" FromRole="booking" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Cat_Id" />
+    </Key>
+    <Property Name="Cat_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cat_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Packages" Relationship="TourismpkModel.FK_Package_Category" FromRole="Category" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Pkg_Id" />
+    </Key>
+    <Property Name="Pkg_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_no" Type="Int32" />
+    <Property Name="Pkg_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pkg_capacity" Type="Int32" />
+    <Property Name="Pkg_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pkg_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pkg_Price" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_Id" Type="Int32" />
+    <Property Name="Creation_Date" Type="DateTime" Precision="0" />
+    <Property Name="Updation_Date" Type="DateTime" Precision="0" />
+    <Property Name="Pkg_Pic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cat_Fid" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="bookings" Relationship="TourismpkModel.FK_booking_Package" FromRole="Package" ToRole="booking" />
+    <NavigationProperty Name="Category" Relationship="TourismpkModel.FK_Package_Category" FromRole="Package" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tourist">
+    <Key>
+      <PropertyRef Name="Tourist_Id" />
+    </Key>
+    <Property Name="Tourist_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tourist_FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tourist_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_booking_Package">
+    <End Type="TourismpkModel.Package" Role="Package" Multiplicity="0..1" />
+    <End Type="TourismpkModel.booking" Role="booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="Pkg_Id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="room_fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_Category">
+    <End Type="TourismpkModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="TourismpkModel.Package" Role="Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Cat_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Cat_Fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

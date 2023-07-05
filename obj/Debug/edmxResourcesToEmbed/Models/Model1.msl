@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TourismpkModelStoreContainer" CdmEntityContainer="TourismpkEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="TourismpkModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+          <ScalarProperty Name="Admin_Email" ColumnName="Admin_Email" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="TourismpkModel.booking">
+        <MappingFragment StoreEntitySet="booking">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="booking_to" ColumnName="booking_to" />
+          <ScalarProperty Name="booking_from" ColumnName="booking_from" />
+          <ScalarProperty Name="room_fid" ColumnName="room_fid" />
+          <ScalarProperty Name="room_no" ColumnName="room_no" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="TourismpkModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="TourismpkModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Cat_Fid" ColumnName="Cat_Fid" />
+          <ScalarProperty Name="Pkg_Pic" ColumnName="Pkg_Pic" />
+          <ScalarProperty Name="Updation_Date" ColumnName="Updation_Date" />
+          <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+          <ScalarProperty Name="Tourist_Id" ColumnName="Tourist_Id" />
+          <ScalarProperty Name="Pkg_Price" ColumnName="Pkg_Price" />
+          <ScalarProperty Name="Pkg_Location" ColumnName="Pkg_Location" />
+          <ScalarProperty Name="Pkg_Type" ColumnName="Pkg_Type" />
+          <ScalarProperty Name="pkg_capacity" ColumnName="pkg_capacity" />
+          <ScalarProperty Name="Pkg_Name" ColumnName="Pkg_Name" />
+          <ScalarProperty Name="room_no" ColumnName="room_no" />
+          <ScalarProperty Name="Pkg_Id" ColumnName="Pkg_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TourismpkModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tourists">
+      <EntityTypeMapping TypeName="TourismpkModel.Tourist">
+        <MappingFragment StoreEntitySet="Tourist">
+          <ScalarProperty Name="Tourist_Address" ColumnName="Tourist_Address" />
+          <ScalarProperty Name="Tourist_Contact" ColumnName="Tourist_Contact" />
+          <ScalarProperty Name="Tourist_Password" ColumnName="Tourist_Password" />
+          <ScalarProperty Name="Tourist_Email" ColumnName="Tourist_Email" />
+          <ScalarProperty Name="Tourist_LastName" ColumnName="Tourist_LastName" />
+          <ScalarProperty Name="Tourist_FirstName" ColumnName="Tourist_FirstName" />
+          <ScalarProperty Name="Tourist_Id" ColumnName="Tourist_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
