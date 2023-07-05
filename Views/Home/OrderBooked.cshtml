@@ -1,0 +1,72 @@
+﻿
+@model Tourismpk.Models.booking
+<script>
+    $(document).ready(function () {
+        $("#mybooked").modal('show');
+    });
+</script>
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Thank You";
+}
+
+@*<button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#centralModalFluid">
+
+        Book
+    </button>*@
+
+
+
+
+
+
+<!-- Central Modal Fluid -->
+<div class="modal fade" id="mybooked" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-fluid" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Invoice</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+
+
+                <label>Room no</label>
+                @Html.DisplayFor(model => model.room_no);
+                <label>Booking From</label>
+                @Html.DisplayFor(model => model.booking_from);
+                <label>Booking To</label>
+                @Html.DisplayFor(model => model.booking_to);
+                <label>Status</label>
+                paid;
+
+
+
+
+
+
+
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
+
+

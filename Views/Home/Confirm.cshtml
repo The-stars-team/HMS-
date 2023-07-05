@@ -1,0 +1,56 @@
+﻿<script>
+    $(document).ready(function(){
+        $("#mypay").modal('show');
+    });
+</script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#centralModalFluid">
+
+        Book
+    </button>*@
+
+@using (Html.BeginForm("proceedtopay", "Home"))
+{
+
+
+
+
+    <!-- Central Modal Fluid -->
+    <div class="modal fade" id="mypay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-fluid" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+
+                  
+                   
+
+
+
+                    
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Confirm And pay</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+}
+

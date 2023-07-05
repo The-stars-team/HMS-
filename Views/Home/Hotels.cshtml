@@ -1,0 +1,87 @@
+﻿
+@model Tourismpk.Models.PackageModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            @foreach (var c in Model.cat)
+            {
+                <ul class="ul3">
+                    <li><a href="@Url.Action("Hotels", "Home", new {id=c.Cat_Id })">@c.Cat_Name</a></li>
+                </ul>
+            }
+        </div>
+        <div class="col-sm-9">
+            @foreach (var p in Model.pkg)
+            {
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="thumb5">
+                            <div class="thumbnail clearfix">
+                                <figure>
+                                    @*<img src="https://demo.gridgum.com/templates/Travel-agency/images/hotels01.jpg"
+                                alt=""
+                                class="img-responsive" />*@
+                                    <img width="200px" height="200px" src="@Url.Content(p.Pkg_Pic)" />
+
+                                    <div class="over">
+                                        <div class="v1">
+                                            @p.Pkg_Name <span>6.9 Review score</span>
+
+
+                                        </div> <input type="hidden" name="@p.Pkg_Id" />
+                                        <input type="hidden" name="@p.room_no" />
+
+                                        <div class="v2">@p.Pkg_Type</div>
+                                    </div>
+                                </figure>
+                                <div class="caption">
+                                    <div class="txt1">@p.Pkg_Name</div>
+                                    <div class="txt2">@p.Pkg_Type</div>
+                                    <div class="txt3 clearfix">
+                                        <div class="left_side">
+                                            <div class="price">@p.Pkg_Price</div>
+                                            <div class="stars2">
+                                                <img src="https://demo.gridgum.com/templates/Travel-agency/images/star1.png"
+                                                     alt="" />
+                                                <img src="https://demo.gridgum.com/templates/Travel-agency/images/star1.png"
+                                                     alt="" />
+                                                <img src="https://demo.gridgum.com/templates/Travel-agency/images/star1.png"
+                                                     alt="" />
+                                                <img src="https://demo.gridgum.com/templates/Travel-agency/images/star1.png"
+                                                     alt="" />
+                                                <img src="https://demo.gridgum.com/templates/Travel-agency/images/star3.png"
+                                                     alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="right_side">
+                                            <a href="@Url.Action("Booking", "Home", new { id = p.Pkg_Id, rn = p.room_no })" class="btn-default btn1">Book</a>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @*</div>*@
+
+            }
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
