@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Tourismpk.Models.booking>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "BookedAppointment";
+}
+
+<script>
+    $(document).ready(function(){
+        $("#myalert").modal('show');
+    });
+</script>
+
+<h2>Booked status</h2>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-fluid" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Room Booked status</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+
+                <label>Booked</label>
+           
+
+
+
+               
+              
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.room_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_from)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_to)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Package.Pkg_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_from)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_to)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Package.Pkg_Name)
+            </td>
+            <td>
+                Booked
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("Hotels","Home")">Back to Room List</a>
