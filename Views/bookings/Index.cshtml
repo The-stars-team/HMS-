@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Tourismpk.Models.booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container bg-inverse">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-7">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table ">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.room_no)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.booking_from)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.booking_to)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.amount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Package.Pkg_Name)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.room_no)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.booking_from)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.booking_to)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Package.Pkg_Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.booking_id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.booking_id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.booking_id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
