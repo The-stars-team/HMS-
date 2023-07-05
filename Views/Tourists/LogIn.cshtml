@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Tourismpk.Models.Tourist>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("LogIn", "Tourists"))
+{
+@Html.AntiForgeryToken()
+
+                <div class="container mt-5 ">
+                    <h3 class="text-center"> Log In </h3>
+                    <div class="row">
+
+                        <div class="col-md-5">
+
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" name="Tourist_Email" required class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" name="Tourist_Password" required class="form-control">
+
+                            </div>
+
+
+                            <div class="form-group ">
+
+                                <input type="submit" value="Log In" required class="btn btn-danger form-control">
+                            </div>
+                            <div>
+                                @Html.ActionLink("If You Not Register than Sign Up", "SignUp")
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>}

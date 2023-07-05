@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Tourismpk.Models.Package>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-sm-offset-2 main">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pkg_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pkg_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pkg_Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pkg_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creation_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Updation_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tourist_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pkg_Pic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Cat_Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pkg_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pkg_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pkg_Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pkg_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Creation_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Updation_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tourist_Id)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Pkg_Pic)" width="50px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Cat_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Pkg_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Pkg_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Pkg_Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
